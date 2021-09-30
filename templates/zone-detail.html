@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+					crossorigin="anonymous">
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+					integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+					crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+					integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+					crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="../static/style.css" type="text/css">
+	
+	<title>Puppy Zone Detail</title>
+
+</head>
+
+<style>
+</style>
+
+<body>
+	<div class="detail-result">
+		<h1>puppy zone 검색결과 (000)</h1>
+		<div class="detail">
+			<div class="detail-img">
+				<img class="detail-img-src" src="https://t1.daumcdn.net/liveboard/holapet/0e5f90af436e4c218343073164a5f657.JPG" alt="...">
+			</div>
+			<div class="detail-info">
+				<h3>장소명</h3>
+				<p>종류</p>
+				<p>위치</p>
+				<div class="text-box">카드 설명
+					<strong></strong>
+				</div>
+				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="review-box">
+		<span><label for="review-writer">작성자</label></span>
+		<span><input name="review-writer" id="review-writer"></span><br>
+		<textarea name="review-comment" id="review-comment" class="form-control" rows="3"
+				  placeholder="방문 후기를 남겨주세요!"></textarea><br>
+	
+		<div class="view-area">
+			<br>
+			<span><button type="button" class="btn save" onclick="removeContent()">취소</button></span>
+			<span><button type="button" class="btn btn-primary save" onclick="postReview()">리뷰저장</button></span>
+		</div>
+	</div>
+
+
+</body>

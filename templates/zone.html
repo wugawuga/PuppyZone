@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
+    
+    <title>Puppy Zone Search</title>
+
+    <style>        
+    </style>
+
+    <script>
+        function newPage()  {
+            window.location.href = '../zone-detail'
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="header">
+        header
+    </div>
+    <div class="zone">
+        <h1>어디로 떠나볼까요?</h1>
+        <div class="zone-select">
+            <button type="button" class="btn btn-outline-dark">공원</button>
+            <button type="button" class="btn btn-outline-dark">놀이터</button>
+            <button type="button" class="btn btn-outline-dark">호텔</button>
+            <button type="button" class="btn btn-outline-dark">카페</button>
+            <button type="button" class="btn btn-outline-dark">산</button>
+            <button type="button" class="btn btn-outline-dark">바다</button>
+        </div>
+    </div>
+
+    <div class="zone-result">
+        <h1>puppy zone 검색결과 (000)</h1>
+        <ul class="zone-result-list">
+            <li class="card">
+                <div class="img">
+                    <img class="img-src" alt="...">
+                </div>
+                <div class="info">
+                    <h5 class="card-title">장소명</h5>
+                    <p class="card-text">종류</p>
+                    <p class="card-text">위치</p>
+                    <p class="card-text">카드 설명</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <input 
+                    id='go_home'
+                    type='button'
+                    onclick='newPage()'
+                    value='    '>
+                </div>
+            </li>
+            <li class="card">
+                <a href="https://www.goodchoice.kr/product/detail?ano=62375&adcno=3&sel_date=2021-09-28&sel_date2=2021-09-29">here</a>
+                <div class="img">
+                    <img class="img-src" alt="...">
+                </div>
+                <div class="info">
+                    <h5 class="card-title">장소명</h5>
+                    <p class="card-text">종류</p>
+                    <p class="card-text">위치</p>
+                    <p class="card-text">카드 설명</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    
+</body>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+
+    <title>PuppyZone sns</title>
+
+    <link rel="stylesheet" href="../static/snspet.css" type="text/css">
+
+    <script>
+        $(document).ready(function() {
+            bsCustomFileInput.init();
+            showsns();
+        });
+
+        function openClose() {
+                if ($("#post-box").css("display") == "block") {
+                    $("#post-box").hide();
+                    $("#btn-post-box").text("작성하기");
+                } else {
+                    $("#post-box").show();
+                    $("#btn-post-box").text("닫기");
+                }
+            }
+
+        function postsns() {
+            let user = $('#user').val()
+            let title = $('#title').val()
+            let comment = $('#comment').val()
+
+            let file = $('#file')[0].files[0];
+            let form_data = new FormData();
+
+            form_data.append("file_give", file);
+            form_data.append("user_give", user);
+            form_data.append("title_give", title);
+            form_data.append("comment_give", comment);
+
+            $.ajax({
+                type: "POST",
+                url: "/sns",
+                data: form_data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) { // 성공하면
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
+        }
+
+        function showsns() {
+            $.ajax({
+                type: "GET",
+                url: "/sns",
+                data: {},
+                success: function (response) {
+                    let snss = response['all_snss']
+                    for (let i = 0; i < snss.length; i++) {
+                        let user = snss[i]['user']
+                        let title = snss[i]['title']
+                        let file = snss[i]['file']
+                        let comment = snss[i]['comment']
+                        let like = snss[i]['like']
+
+                        let temp_html = `<div class="card">
+                                            <img class="card-img-top"
+                                                src="../static/${file}">
+                                            <div class="card-body">
+                                                <a target="_blank" href="" class="card-title">작성자 : ${user} (좋아요 : ${like})</a>
+                                                <p class="card-text">제목 : ${title}</p>
+                                                <p class="card-text comment">간단 코멘트 : ${comment}</p>
+                                            </div>
+                                            <footer class="card-footer">
+                                                <a href="#" onclick="likeStar('${user}')" class="card-footer-item has-text-info">
+                                                    좋아요
+                                                <span class="icon">
+                                                <i class="fas fa-thumbs-up"></i>
+                                                </span>
+                                                </a>
+                                                <a href="#" onclick="deleteStar('${user}')" class="card-footer-item has-text-danger">
+                                                        게시글 삭제
+                                                        <span class="icon">
+                                                <i class="fas fa-ban"></i>
+                                                </span>
+                                                </a>
+                                            </footer>   
+                                        </div>`
+                        $('#cards-box').append(temp_html)
+                    }
+                }
+            })
+        }
+
+        function likeStar(user) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/like',
+                    data: {user_give:user},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            }
+
+            function deleteStar(user) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/delete',
+                    data: {user_give:user},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            }
+
+    </script>
+</head>
+
+<body>
+<div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="../static/logo.png"></a>
+        </div>
+        <nav class="navy">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/zone">지도검색</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/snspet">SNS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/...">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">sign in/sign up</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <h2 class="title-1">요즘 뜨는 반려견 스팟!!</h2>
+
+    <hr size="100px" color="gray"></hr>
+
+    <div class="post-box">
+        <p class="lead">
+            <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">작성하기</button>
+        </p>
+    </div>
+
+    <div id="post-box" class="form-post" style="display:none">
+        <div>
+            <div class="form-group">
+                <label for="user">작성자</label>
+                <input id="user" class="form-control" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input id="title" class="form-control" placeholder=""> 
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">사진</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="file">
+                  <label class="custom-file-label" for="file">사진을 첨부해주세요!!</label>
+                </div>
+              </div>
+
+            <div class="form-group">
+                <label for="comment">간단 코멘트</label>
+                <textarea id="comment" class="form-control" placeholder="" style="overflow-y:scroll"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="postsns()">글저장</button>
+        </div>
+    </div>
+
+    <div id="cards-box" class="card-columns">
+    </div>
+
+</body>
+
+</html>

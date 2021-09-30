@@ -1,0 +1,36 @@
+* {
+    font-family: 'Cute Font', cursive;
+}
+
+.comment {
+        color: blue;
+        font-weight: bold;
+    }
+
+.nav-item > a {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.navy{
+    float: right;
+}
+img{
+    height: 100px;
+    width: 200px;
+    text-align: center;
+}
+.logo{
+    float: left;
+}
+.title-1{
+    text-align: center;
+}
+
+#post-box {
+        width: 500px;
+        margin: 20px auto;
+        padding: 50px;
+        border: black solid;
+        border-radius: 5px;
+    }

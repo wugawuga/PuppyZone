@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: white;
+}
+.navy{
+    float: right;
+}
+.nav-item> a{
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+}
+
+img{
+    height: 100px;
+    width: 200px;
+    text-align: center;
+}
+.hotel{
+    width: 800px;
+    height: 500px;
+}
+.logo{
+    float: left;
+}
+.info{
+    width: 300px;
+    margin: auto;
+}
+.review-box{
+    display: block;
+}
+.view-area{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+.btn{
+    color:white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 24px;
+    background-color: blue;
+}
+.text-wrap{
+    width: 600px;
+    height: 100vh;
+    padding: 240px 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: black;
+    z-index: 1;
+}
+.text-wrap h2{
+    color:white;
+    font-size: 64px;
+    line-height: 80px;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+.text-wrap h3{
+    color:white;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+
+}
+
+.text-wrap p{
+    color:white;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
