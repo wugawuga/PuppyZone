@@ -1,36 +1,37 @@
-* {
-    font-family: 'Cute Font', cursive;
+
+.sns {
+    
+    margin: auto;
+    width: 900px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.lead {
+    width: fit-content;
+    height: fit-content;
+    align-content: center;
 }
 
 .comment {
-        color: blue;
-        font-weight: bold;
-    }
+    color: rgb(48,138,255);
+    font-weight: 1px;
+}
 
-.nav-item > a {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-}
-.navy{
-    float: right;
-}
-img{
-    height: 100px;
-    width: 200px;
-    text-align: center;
-}
-.logo{
-    float: left;
-}
 .title-1{
     text-align: center;
+    margin-bottom: 100px;
 }
 
 #post-box {
-        width: 500px;
-        margin: 20px auto;
-        padding: 50px;
-        border: black solid;
-        border-radius: 5px;
-    }
+    width: 600px;
+    margin: 20px auto;
+    padding: 50px;
+    border: black solid 1px;
+    border-radius: 5px;
+    position: center;
+}
+/* button {
+    align-content: center;
+} */
+

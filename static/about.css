@@ -1,0 +1,132 @@
+body, ul, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+body{
+    background-color: rgba(255, 255, 255, 0.56);
+    color: gray;
+}
+
+.wrapper {
+    display: flex;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.team {
+    justify-content: center;
+    display: flex; 
+    align-items: center;
+}
+
+.team-item {
+    flex-basis: 220px;
+    flex-shrink: 0;
+    margin: 0 10px;
+    transition: all .4s;
+}
+
+.team-item:hover {
+    flex-basis: 250px;
+    margin: 0 20px;
+}
+
+.team-item img {
+    width: 100%;
+}
+
+.profile {
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+/*그라데이션 넣기*/
+.profile:before {
+    content: '';
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+    
+    background: -moz-linear-gradient(top,  rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 );
+    
+    /* IE6-9 */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+}
+/*각자 이름 색깔*/
+/* .profile_beige {
+    color: #ffffb6;
+}
+.profile_green {
+    color: #43ff43;
+}
+.profile_pink {
+    color: #ff5e77;
+}
+.profile_purple {
+    color: #ff36ff;
+}
+.profile_red {
+    color: #ff3d3d;
+} */
+
+.profile_default {
+    color: black;
+}
+
+.profile-contents {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.profile-contents h2 {
+    font-size: 20px;
+}
+
+.profile-contents h2 span {
+    display: block;
+    font-size: 12px;
+}
+
+.profile-contents p {
+    color: black;
+    font-size: 12px;
+    min-width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    line-height: 1.2;
+    transition: all .4s;
+    opacity: 0;
+    transition-delay: .8s;
+}
+/*opacity 설명란 나올때 투명도*/
+/*transition-display 나오는속도*/
+/*em 반응형단위*/
+/* 설명란 줄 수*/
+
+.title {
+    text-align: center;
+    margin-top: 100px;
+    color: black;
+}
+
+.team-item:hover .profile-contents p {
+    opacity: 1;
+    max-height: 6em;
+    margin-top: 0.2em;
+}
+
+/*margin-top 이름과 설명란 위아래 폭*/

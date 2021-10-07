@@ -1,0 +1,64 @@
+/* zone-detail.html 관련 css입니다. */
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+
+.detail-result {
+    margin: auto;
+    width: 900px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.detail {
+    /* background-color: aqua; */
+    /* border: 1px solid black; */
+    border-radius: 10;
+    display: inline-block;
+    width: 900px;
+    margin-top: 30px;
+}
+
+.detail-img-src {
+    float: left;
+    width: 50%;
+    background-color: blueviolet;
+}
+
+.detail-info {
+    float: left;
+    width: 50%;
+    padding: 24px 16px 24px 24px;
+}
+
+.text-box {
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    padding: 26px 24px;
+    background: rgb(250,250,250);
+}
+
+/* ------container------- */
+
+.info {
+    width: 900px;
+    height: fit-content;
+    margin: auto auto 40px auto;
+    border-style: solid 1px black;
+}
+
+.table {
+    width: 900px;
+    margin: auto;
+}
+
+/* .img-src {
+    background-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnDGi73B2HUUVLZMhSYQ2wOUOtaGKtswmFDvoYTMJrVtzZ4heo&s";
+    background-size: cover;
+    background-position: center;
+} */

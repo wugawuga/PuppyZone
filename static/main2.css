@@ -1,0 +1,78 @@
+
+
+/* ---------본문---------- */
+
+/* .img{ */
+/* background: url('https://p4.wallpaperbetter.com/wallpaper/233/906/322/dog-puppy-sun-summer-wallpaper-preview.jpg') no-repeat; */
+/* background: url('https://p4.wallpaperbetter.com/wallpaper/879/797/135/puppy-dog-background-wallpaper-preview.jpg') no-repeat; */
+/* background: url('https://p4.wallpaperbetter.com/wallpaper/997/290/504/chihuahua-lying-on-the-sand-tan-short-coated-puppy-and-black-android-smartphone-wallpaper-preview.jpg') no-repeat; */
+/* background: url('https://p4.wallpaperbetter.com/wallpaper/810/608/30/5c1cad732e52f-wallpaper-preview.jpg') no-repeat; */
+/* width: 100%; */
+/* height: 100vh; */
+/* background-size: cover; */
+/* background-position: center; */
+/* position: relative; */
+/* } */
+#video1 {
+    border: 10px solid #e17055;
+    border-radius: 30px;
+    transform: rotate(-15deg);
+    outline: none;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+.img::before{
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background: rgba(0, 0, 0, 0.2); 
+}
+
+.center{
+position: absolute;
+top: 52%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 100%;
+padding: 0 20px;
+text-align: center;
+}
+.center .title{
+color: rgb(0, 0, 0);
+font-size: 55px;
+font-weight: 600;
+}
+.center .sub_title{
+color: rgb(0, 0, 0);
+font-size: 52px;
+font-weight: 600;
+}
+.center .btns{
+margin-top: 20px;
+}
+.center .btns button{
+height: 55px;
+width: 170px;
+border-radius: 3px;
+border: none;
+margin: 0 10px;
+border: 1px solid white;
+font-size: 20px;
+font-weight: 500;
+padding: 0 10px;
+cursor: pointer;
+outline: none;
+transition: all 0.3s ease;
+}
+.center .btns button:first-child{
+color: #fff;
+background: none;
+}
+.btns button:first-child:hover{
+background: white;
+color: black;
+}
+
+  

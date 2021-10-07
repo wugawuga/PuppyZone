@@ -20,25 +20,79 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 					integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 					crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"> -->
+	<script src="../static/zone-detail.js"></script>
 
-	<link rel="stylesheet" href="../static/style.css" type="text/css">
+	<link rel="stylesheet" href="../static/zone-detail.css" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 	
 	<title>Puppy Zone Detail</title>
+	
+	<script>
+	$(document).ready(function () {
+                showReview();
+            });
 
+            function makeReview() {
+                let author = $('#author').val()
+                let review = $('#review').val()
+
+                $.ajax({
+                    type: "POST",
+                    url: "/review",
+                    data: {author_give:author,review_give:review},
+                    success: function (response) {
+                        alert(response["msg"]);
+                        window.location.reload();
+                    }
+                })
+            }
+
+            function showReview() {
+                $.ajax({
+                    type: "GET",
+                    url: "/review",
+                    data: {},
+                    success: function (response) {
+                        let reviews = response['all_reviews']
+                        for (let i = 0; i < reviews.length; i++) {
+                            let author = reviews[i]['author']
+                            let review = reviews[i]['review']
+
+						let temp_html = `<tr>
+												<td>${author}</td>
+												<td>${review}</td>
+											</tr>`
+						$('#reviews-box').append(temp_html)
+                        }
+                    }
+                })
+            }
+	</script>
 </head>
 
 <style>
+    * {
+        font-family: 'Poor Story', cursive;
+    }
 </style>
 
 <body>
 	<div class="detail-result">
-		<h1>puppy zone 검색결과 (000)</h1>
+		<h1 class="title">Puppy Zone</h1>
 		<div class="detail">
 			<div class="detail-img">
 				<img class="detail-img-src" src="https://t1.daumcdn.net/liveboard/holapet/0e5f90af436e4c218343073164a5f657.JPG" alt="...">
 			</div>
 			<div class="detail-info">
-				<h3>장소명</h3>
+				<h4 style="margin: 0px auto 24px auto;">장소명</h4>
 				<p>종류</p>
 				<p>위치</p>
 				<div class="text-box">카드 설명
@@ -48,19 +102,47 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="review-box">
-		<span><label for="review-writer">작성자</label></span>
-		<span><input name="review-writer" id="review-writer"></span><br>
-		<textarea name="review-comment" id="review-comment" class="form-control" rows="3"
-				  placeholder="방문 후기를 남겨주세요!"></textarea><br>
 	
-		<div class="view-area">
-			<br>
-			<span><button type="button" class="btn save" onclick="removeContent()">취소</button></span>
-			<span><button type="button" class="btn btn-primary save" onclick="postReview()">리뷰저장</button></span>
-		</div>
-	</div>
+    <div>
+        <br><hr size="1px" color="lightgray" width="900px" style="margin: 0px auto 50px auto;">
+        <h4 style="text-align: center; margin:0px auto 24px auto">방문 후기를 남겨주세요</h4>
+    </div>  
+
+    <div class="container">
+        <div class="info">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> 작성자</span>
+                </div>
+                <input type="text" class="form-control" id="author">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">방문 후기</span>
+                </div>
+                <textarea class="form-control" id="review"
+                        cols="30"
+                        rows="5" placeholder="방문 후기를 남겨주세요"></textarea>
+            </div>
+            <div class="review">
+                <button onclick="makeReview()" type="button" class="btn btn-black">작성하기</button>
+            </div>
+        </div>
+        
+        <div class="reviews">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">작성자</th>
+                    <th scope="col">방문 후기</th>
+                </tr>
+                </thead>
+                <tbody id="reviews-box">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </body>

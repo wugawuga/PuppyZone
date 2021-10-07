@@ -22,19 +22,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
+    <link rel="stylesheet" href="../static/snspet.css" type="text/css">
+    <link rel="stylesheet" href="../static/header.css" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
-
-    <title>PuppyZone sns</title>
-
-    <link rel="stylesheet" href="../static/snspet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <script>
         $(document).ready(function() {
             bsCustomFileInput.init();
             showsns();
         });
+
+
+        function confirmLogout() { if( confirm("정말 로그아웃 하시겠습니까?") ) { location.href = "/"; } }
+    
 
         function openClose() {
                 if ($("#post-box").css("display") == "block") {
@@ -143,71 +148,79 @@
     </script>
 </head>
 
+<style>
+    * {
+        font-family: 'Poor Story', cursive;
+    }
+</style>
+
 <body>
-<div class="navbar">
-        <div class="logo">
-            <a href="/"><img src="../static/logo.png"></a>
-        </div>
-        <nav class="navy">
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link" href="/zone">지도검색</a>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="/">Puppy Zone</a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/zone">Puppy Zone</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/snspet">SNS</a>
+                <li>
+                    <a href="/snspet">SNS</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/...">About us</a>
+                <li>
+                    <a href="/about">About us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">sign in/sign up</a>
+                <li>
+                    <a href="/login">Login</a>
                 </li>
             </ul>
-        </nav>
-    </div>
-
-    <h2 class="title-1">요즘 뜨는 반려견 스팟!!</h2>
-
-    <hr size="100px" color="gray"></hr>
-
-    <div class="post-box">
-        <p class="lead">
-            <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">작성하기</button>
-        </p>
-    </div>
-
-    <div id="post-box" class="form-post" style="display:none">
-        <div>
-            <div class="form-group">
-                <label for="user">작성자</label>
-                <input id="user" class="form-control" placeholder="">
-            </div>
-
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input id="title" class="form-control" placeholder=""> 
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">사진</span>
-                </div>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="file">
-                  <label class="custom-file-label" for="file">사진을 첨부해주세요!!</label>
-                </div>
-              </div>
-
-            <div class="form-group">
-                <label for="comment">간단 코멘트</label>
-                <textarea id="comment" class="form-control" placeholder="" style="overflow-y:scroll"></textarea>
-            </div>
-
-            <button type="button" class="btn btn-primary" onclick="postsns()">글저장</button>
         </div>
-    </div>
+    </nav>
 
-    <div id="cards-box" class="card-columns">
+    <div class="sns">
+        <h1 class="title-1">요즘 뜨는 반려견 스팟</h1>
+
+        <div class="post-box">
+            <p class="lead">
+                <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-outline-dark">스팟 자랑하기</button> 
+            </p>
+        </div>
+
+        <div id="post-box" class="form-post" style="display:none">
+            <div>
+                <div class="form-group">
+                    <label for="user">작성자</label>
+                    <input id="user" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group" width="600px">
+                    <label for="title">제목</label>
+                    <input id="title" class="form-control" placeholder=""> 
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">사진</span>
+                    </div>
+                    <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="file">
+                    <label class="custom-file-label" for="file">사진을 첨부해주세요.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">간단 코멘트</label>
+                    <textarea id="comment" class="form-control" placeholder="" style="overflow-y:scroll"></textarea>
+                </div>
+
+                <button type="button" class="btn btn-black" onclick="postsns()">저장</button>
+            </div>
+        </div>
+
+        <br><hr size="1px" color="gray">
+
+        <div id="cards-box" class="card-columns">
+        </div>
     </div>
 
 </body>

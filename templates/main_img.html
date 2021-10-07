@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------<title> Website Layout | CodingLab</title>------>
+    <link rel="stylesheet" href="../static/main_img.css">
+    <link rel="stylesheet" href="../static/header.css" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
+    <title>Main</title>
+
+    <script>
+        function confirmLogout() { if( confirm("정말 로그아웃 하시겠습니까?") ) { location.href = "/"; } }
+    </script>
+
+</head>
+
+<style>
+    * {
+        font-family: 'Poor Story', cursive;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="/main">Puppy Zone</a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/zone">Puppy Zone</a>
+                </li>
+                <li>
+                    <a href="/snspet">SNS</a>
+                </li>
+                <li>
+                    <a href="/about">About us</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="img"></div>
+    <div class="center">
+        <div class="title">반려견과 어디든 떠나고 싶으세요?</div>
+        <div class="sub_title">함께할 수 있는 모든 곳!</div>
+        <div class="btns">
+            <button onclick="location.href='/zone'">Let's go!</button>
+        </div>
+    </div>
+</body>
+</html>

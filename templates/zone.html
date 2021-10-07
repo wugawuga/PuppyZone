@@ -21,71 +21,293 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../static/style.css" type="text/css">
+    <link rel="stylesheet" href="../static/zone.css" type="text/css">
+    <link rel="stylesheet" href="../static/header.css" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
     
     <title>Puppy Zone Search</title>
 
-    <style>        
-    </style>
-
     <script>
+        
         function newPage()  {
             window.location.href = '../zone-detail'
         }
+
+        playground
+
+        function showcafe() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_cafe',
+                data: {},
+                success: function (response) {
+                    let cafes = response['cafes']
+                    for (let i = 0; i < cafes.length; i++){
+                        let place = cafes[i]['place']
+                        let cafeimg = cafes[i]['cafeimg']
+                        let address = cafes[i]['address']
+                        let placet = cafes[i]['placet']
+                        let url = cafes[i]['url']
+
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${url}"><img alt="" src="${cafeimg}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">카페 이름 : ${place}</h5>
+                                                <p class="card-text">특징 : ${placet}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                <input 
+                                                id='go_home'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value='더보기'>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function showplayground() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_playground',
+                data: {},
+                success: function (response) {
+                    let playgrounds = response['playgrounds']
+                    for (let i = 0; i < playgrounds.length; i++){
+                        let title = playgrounds[i]['title']
+                        let img = playgrounds[i]['img']
+                        let address = playgrounds[i]['address']
+                        let comment = playgrounds[i]['comment']
+                        let url = playgrounds[i]['url']
+
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${url}"><img alt="" src="${img}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">놀이터 이름 : ${title}</h5>
+                                                <p class="card-text">특징 : ${comment}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                <input 
+                                                id='go_home'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value='더보기'>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function showplay() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_play',
+                data: {},
+                success: function (response) {
+                    let plays = response['plays']
+                    for (let i = 0; i < plays.length; i++){
+                        let title = plays[i]['title']
+                        let img = plays[i]['img']
+                        let address = plays[i]['address']
+                        let comment = plays[i]['comment']
+                        let url = plays[i]['url']
+
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${url}"><img alt="" src="${img}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">운동장 이름 : ${title}</h5>
+                                                <p class="card-text">특징 : ${comment}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                <input 
+                                                id='go_home'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value='더보기'>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function showhospital() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_hospital',
+                data: {},
+                success: function (response) {
+                    let hospitals = response['hospitals']
+                    for (let i = 0; i < hospitals.length; i++){
+                        let title = hospitals[i]['title']
+                        let img = hospitals[i]['img']
+                        let address = hospitals[i]['address']
+                        let comment = hospitals[i]['comment']
+                        let url = hospitals[i]['url']
+
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${url}"><img alt="" src="${img}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">병원 이름 : ${title}</h5>
+                                                <p class="card-text">특징 : ${comment}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                <input 
+                                                id='go_home'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value='더보기'>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function showpension() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_pension',
+                data: {},
+                success: function (response) {
+                    let pensions = response['pensions']
+                    for (let i = 0; i < pensions.length; i++){
+                        let title = pensions[i]['title']
+                        let img = pensions[i]['img']
+                        let address = pensions[i]['address']
+                        let grade = pensions[i]['grade']
+                        let price = pensions[i]['price']
+                        let src = pensions[i]['src']
+                        
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${src}"><img alt="" src="${img}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">펜션 이름 : ${title}</h5>
+                                                <p class="card-text">가격 : ${price}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                <p class="card-text">평점 : ${grade}</p>
+                                                <input 
+                                                id='go-detail'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value=' 더 보기 '>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function showrice() {
+            $('#zone_start').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/show_rice',
+                data: {},
+                success: function (response) {
+                    let rices = response['rices']
+                    for (let i = 0; i < rices.length; i++){
+                        let title = rices[i]['title']
+                        let img = rices[i]['img']
+                        let address = rices[i]['address']
+                        let grade = rices[i]['grade']
+                        let url = rices[i]['url']
+                        
+                        let temp_html = `<li class="card">
+                                            <div class="img">
+                                                <a href="${url}"><img alt="" src="${img}" style="width: 300px; height: 230px;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="card-title">식당 이름 : ${title}</h5>
+                                                <p class="card-text">평점 : ${grade}</p>
+                                                <p class="card-text">주소 : ${address}</p>
+                                                
+                                                <input 
+                                                id='go-detail'
+                                                type='button'
+                                                onclick='newPage()'
+                                                value=' 더 보기 '>
+                                            </div>
+                                        </li>`
+                        $('#zone_start').append(temp_html)
+                    }
+                }
+            });
+        }
+
     </script>
 
 </head>
 
+<style>
+    * {
+        font-family: 'Poor Story', cursive;
+    }
+</style>
+
 <body>
-    <div class="header">
-        header
-    </div>
+    <nav>   
+        <div class="menu">
+            <div class="logo">
+                <a href="/">Puppy Zone</a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/zone">Puppy Zone</a>
+                </li>
+                <li>
+                    <a href="/snspet">SNS</a>
+                </li>
+                <li>
+                    <a href="/about">About us</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="zone">
         <h1>어디로 떠나볼까요?</h1>
         <div class="zone-select">
-            <button type="button" class="btn btn-outline-dark">공원</button>
-            <button type="button" class="btn btn-outline-dark">놀이터</button>
-            <button type="button" class="btn btn-outline-dark">호텔</button>
-            <button type="button" class="btn btn-outline-dark">카페</button>
-            <button type="button" class="btn btn-outline-dark">산</button>
-            <button type="button" class="btn btn-outline-dark">바다</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showplay()">🏞<br>운동장</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showplayground()">놀이터</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showpension()">호텔</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showcafe()">카페</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showrice()">식당</button>
+            <button type="button" class="btn btn-outline-dark" onclick="showhospital()">병원</button>
         </div>
     </div>
-
+    <div>
+        <h1>Puppy Zone 검색 결과</h1>
+    </div>
     <div class="zone-result">
-        <h1>puppy zone 검색결과 (000)</h1>
-        <ul class="zone-result-list">
-            <li class="card">
-                <div class="img">
-                    <img class="img-src" alt="...">
-                </div>
-                <div class="info">
-                    <h5 class="card-title">장소명</h5>
-                    <p class="card-text">종류</p>
-                    <p class="card-text">위치</p>
-                    <p class="card-text">카드 설명</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <input 
-                    id='go_home'
-                    type='button'
-                    onclick='newPage()'
-                    value='    '>
-                </div>
-            </li>
-            <li class="card">
-                <a href="https://www.goodchoice.kr/product/detail?ano=62375&adcno=3&sel_date=2021-09-28&sel_date2=2021-09-29">here</a>
-                <div class="img">
-                    <img class="img-src" alt="...">
-                </div>
-                <div class="info">
-                    <h5 class="card-title">장소명</h5>
-                    <p class="card-text">종류</p>
-                    <p class="card-text">위치</p>
-                    <p class="card-text">카드 설명</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </li>
-            
+        <ul class="zone-result-list" id="zone_start">
         </ul>
     </div>
     
